@@ -76,7 +76,7 @@
   window.addEventListener("resize", resize);
 
   const particles = [];
-  const NUM = 50; // una mica més de partícules
+  const NUM = 20; // una mica més de partícules
   const mouse = { x: null, y: null, radius: 150 };
 
   class Particle {
