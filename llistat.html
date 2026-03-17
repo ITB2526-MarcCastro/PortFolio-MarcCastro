@@ -5,45 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Llistat de Projectes</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .section-title {
+      font-size: 1.5rem;
+      color: #ff3b3b;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
     <h1>Llistat de Projectes</h1>
     <nav class="nav">
       <a href="index.html">Inici</a>
-      <a href="llistat.html">Projectes</a>
+      <a href="llistat.html" class="active">Projectes</a>
       <a href="contacte.html">Contacte</a>
     </nav>
   </header>
 
   <main class="container">
     <article class="project-list-wrapper">
-      <h2>Tots els projectes</h2>
 
+      <!-- SECCIÓ 1: PROJECTES PERSONALS -->
+      <h2 class="section-title">Projectes Personals</h2>
       <ul class="project-list">
         <li><a href="PW1.html">TDR - La evolució de la pesca a Arenys de Mar: Una dècada de reptes i Transformacions</a></li>
         <li><a href="PW2.html">Video Lleis Gravitacionals</a></li>
         <li><a href="PW3.html">PdR - L’efecte del gènere, l’edat i la cultura en el comportament humà</a></li>
-        <li><a href="#">Blog personal</a></li>
+        <li><a href="PW4.html">Blog personal</a></li>
         <li><a href="#">Gestor de tasques</a></li>
-        <li><a href="#">Plataforma educativa</a></li>
         <li><a href="#">Portfolio fotogràfic</a></li>
-        <li><a href="#">Dashboard analític</a></li>
-        <li><a href="#">Sistema de reserves</a></li>
-        <li><a href="#">CRM empresarial</a></li>
-        <li><a href="#">Marketplace digital</a></li>
-        <li><a href="#">Aplicació de fitness</a></li>
         <li><a href="#">Xarxa social minimalista</a></li>
         <li><a href="#">Gestor de notes</a></li>
-        <li><a href="#">Web de notícies</a></li>
-        <li><a href="#">Plataforma de streaming</a></li>
-        <li><a href="#">Gestor de contactes</a></li>
-        <li><a href="#">Aplicació de cuina</a></li>
-        <li><a href="#">Portal immobiliari</a></li>
-        <li><a href="#">Web de viatges</a></li>
-        <li><a href="#">Botiga online de moda</a></li>
-        <li><a href="#">Sistema de votacions</a></li>
       </ul>
+
+      <!-- SECCIÓ 2: PROJECTES DE XARXES -->
+      <h2 class="section-title">Xarxes</h2>
+      <ul class="project-list">
+        <li><a href="PW5.html">DNS i DHCP en Windows Server</a></li>
+        <li><a href="#">Simulador de Xarxes</a></li>
+        <li><a href="#">Dashboard de Monitorització de Xarxa</a></li>
+        <li><a href="#">Anàlisi de Paquet de Dades</a></li>
+        <li><a href="#">Sistema de Seguretat de Xarxa</a></li>
+        <li><a href="#">Gestor de Dispositius IoT</a></li>
+      </ul>
+
+      <!-- SECCIÓ 3: PROJECTES DE SISTEMES OPERATIUS -->
+      <h2 class="section-title">Sistemes Operatius</h2>
+      <ul class="project-list">
+        <li><a href="#">Gestor de Processos</a></li>
+        <li><a href="#">Monitor de Rendiment del Sistema</a></li>
+        <li><a href="#">Gestor de Fitxers Avançat</a></li>
+        <li><a href="#">Automatització de Tasques amb Scripts</a></li>
+        <li><a href="#">Sistema de Còpies de Seguretat</a></li>
+        <li><a href="#">Anàlisi de Logs del Sistema</a></li>
+      </ul>
+
     </article>
   </main>
 
@@ -54,7 +78,6 @@
   <div id="pageTimer" aria-live="polite">
     <span class="pt-icon">⏱️</span><span class="pt-time">00:00</span>
   </div>
-
 
   <canvas id="particles"></canvas>
   <script src="script.js"></script>
