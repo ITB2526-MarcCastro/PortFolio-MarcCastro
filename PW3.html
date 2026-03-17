@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Detall Projecte 3</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page basics: force a dark page background so exterior no queda blanca */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000000; /* força fons negre */
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* Grid: left recuadre + right recuadre; align-items: stretch fa que ambdós tinguin la mateixa altura */
+    .project-detail {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    /* ESQUERRA: recuadre amb fons fosc per integrar amb el tema global */
+    .intro-box {
+      background: #0f0f10;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: auto;
+    }
+
+    .intro-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ff3b3b; /* títol en vermell */
+      line-height: 1.2;
+    }
+
+    .intro-text {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #ffffff; /* text en blanc */
+      line-height: 1.45;
+    }
+
+    .intro-images {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .intro-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      object-fit: cover;
+    }
+
+    /* DRETA: contenidor amb dos PDF apilats */
+    .pdf-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      background: transparent;
+      padding: 0;
+    }
+
+    .pdf-container {
+      background: #0f0f10;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+      overflow: hidden;
+      flex: 1;
+    }
+
+    .pdf-viewer {
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+
+    .pdf-viewer iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    /* Responsive: apilar en pantalles petites */
+    @media (max-width: 900px) {
+      .project-detail {
+        grid-template-columns: 1fr;
+      }
+      .intro-box { order: 2; }
+      .pdf-wrap  { order: 1; }
+      .intro-title { font-size: 1rem; }
+      .intro-text  { font-size: 0.95rem; }
+    }
+
+    /* Header/footer: transparent per deixar veure el fons negre global */
+    header.header, footer.footer {
+      padding: 16px 24px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>PdR - L’efecte del gènere, l’edat i la cultura en el comportament humà</h1>
+    <nav class="nav">
+      <a href="index.html">Inici</a>
+      <a href="llistat.html">Projectes</a>
+      <a href="contacte.html">Contacte</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="project-detail" role="region" aria-label="Detall del projecte">
+
+      <!-- ESQUERRA: Recuadre fosc; edita aquí per afegir títol, text i imatges -->
+      <aside class="intro-box" id="introBox" aria-label="Introducció del projecte">
+        <h2 class="intro-title"> Introducció </h2>
+
+        <p class="intro-text"> Aquest projecte investiga si el gènere, l'edat i la cultura determinen el comportament humà o si aquest depèn de la nostra biologia, analitzant conceptes com el dimorfisme sexual i l'impacte dels estereotips socials. Mitjançant un treball de camp que inclou enquestes i entrevistes realitzades a Espanya, Colòmbia, els Estats Units, França i la Xina, l'estudi compara les reaccions de diferents poblacions per esbrinar si les nostres decisions i prioritats són universals o varien segons l'entorn on vivim. L'objectiu final és comprendre millor la interacció entre la naturalesa i la societat en la formació de la nostra identitat i conducta quotidiana. </p>
+
+        <div class="intro-images" id="introImages">
+          <!-- Afegir imatges: posa fitxers a assets/images/ i afegeix línies com:
+               <img src="assets/images/imatge1.jpg" alt="Descripció">
+          -->
+        </div>
+      </aside>
+
+      <!-- DRETA: Dos PDF apilats sense etiqueta -->
+      <div class="pdf-wrap" aria-label="Lectors de PDF">
+        <!-- PDF 1 -->
+        <div class="pdf-container" aria-label="Primer document PDF">
+          <div class="pdf-viewer" id="pdfViewer1">
+            <iframe id="pdfFrame1" src="PdR.pdf" title="Primer PDF del projecte" allowfullscreen></iframe>
+            <noscript>
+              <p style="padding:12px;margin:0;color:#fff;">El navegador no mostra PDFs en línia. Assegura't que el fitxer existeix en la ruta indicada.</p>
+            </noscript>
+          </div>
+        </div>
+
+        <!-- PDF 2 -->
+        <div class="pdf-container" aria-label="Segon document PDF">
+          <div class="pdf-viewer" id="pdfViewer2">
+            <iframe id="pdfFrame2" src="teoria%20pdr.pdf" title="Segon PDF del projecte" allowfullscreen></iframe>
+            <noscript>
+              <p style="padding:12px;margin:0;color:#fff;">El navegador no mostra PDFs en línia. Assegura't que el fitxer existeix en la ruta indicada.</p>
+            </noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Marc Castro Linares</p>
+  </footer>
+
+  <div id="pageTimer">
+    <span class="pt-icon">⏱️</span><span class="pt-time">00:00</span>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <script>
+    // Redimensiona ambdós iframes i sincronitza amb el recuadre esquerre
+    (function() {
+      const frame1 = document.getElementById('pdfFrame1');
+      const frame2 = document.getElementById('pdfFrame2');
+      const header = document.querySelector('header.header');
+      const footer = document.querySelector('footer.footer');
+      const topPadding = 24;
+
+      function resizePdf() {
+        if (!frame1 || !frame2) return;
+        const headerH = header ? header.getBoundingClientRect().height : 0;
+        const footerH = footer ? footer.getBoundingClientRect().height : 0;
+        const available = window.innerHeight - headerH - footerH - topPadding;
+
+        // Divideix l'espai disponible entre els dos PDF (menys el gap de 24px)
+        const h = Math.max(250, (available - 24) / 2);
+        frame1.style.height = h + 'px';
+        frame2.style.height = h + 'px';
+
+        // Assegura que el recuadre esquerre tingui la mateixa alçada visible que la dreta
+        const pdfWrap = frame1.closest('.pdf-wrap');
+        const introBox = document.getElementById('introBox');
+        if (pdfWrap && introBox) {
+          const pdfHeight = pdfWrap.getBoundingClientRect().height;
+          introBox.style.minHeight = Math.max(300, pdfHeight) + 'px';
+        }
+      }
+
+      window.addEventListener('resize', resizePdf);
+      window.addEventListener('load', resizePdf);
+      resizePdf();
+    })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
