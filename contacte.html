@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacte</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header class="header">
+    <h1>Contacte</h1>
+    <nav class="nav">
+      <a href="index.html">Inici</a>
+      <a href="llistat.html">Projectes</a>
+      <a href="curriculum.html">Currículum</a>
+      <a href="contacte.html" class="active">Contacte</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <form
+      action="https://formsubmit.co/linarescastromarc@gmail.com"
+      method="POST"
+      class="form"
+      id="contactForm"
+    >
+      <h2>Contacta amb mi</h2>
+
+      <!-- Configuració de FormSubmit -->
+      <input type="hidden" name="_subject" value="Nou missatge des de la web de contacte">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <!-- Camp anti-spam (honeypot): ha de quedar buit, no l'eliminis -->
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="email">Correu electrònic:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="assumpte">Assumpte:</label>
+      <input type="text" id="assumpte" name="assumpte" required>
+
+      <label for="missatge">Missatge:</label>
+      <textarea id="missatge" name="missatge" rows="6" required></textarea>
+
+      <button type="submit">Enviar missatge</button>
+
+      <p id="formStatus" class="form-status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <footer class="footer">
+     <p>&copy; 2026 Marc Castro Linares</p>
+  </footer>
+
+  <div id="pageTimer" aria-live="polite" aria-label="Tiempo en la página">
+    <span class="pt-icon">⏱️</span><span class="pt-time">00:00</span>
+  </div>
+
+  <canvas id="particles"></canvas>
+  <script src="script.js"></script>
+  <script>
+    // Envia el formulari per AJAX perquè l'usuari es quedi a la pàgina
+    // i vegi un missatge de confirmació en lloc de ser redirigit.
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      formStatus.textContent = 'Enviant...';
+      formStatus.className = 'form-status';
+
+      try {
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          formStatus.textContent = 'Missatge enviat correctament. Gràcies per contactar!';
+          formStatus.className = 'form-status success';
+          contactForm.reset();
+        } else {
+          throw new Error('Error en la resposta del servidor');
+        }
+      } catch (error) {
+        formStatus.textContent = 'Hi ha hagut un error enviant el missatge. Torna-ho a provar.';
+        formStatus.className = 'form-status error';
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

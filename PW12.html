@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projecte de Sistemes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #000000;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .project-detail {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 24px;
+      align-items: stretch;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+
+    .intro-box {
+      background: #0f0f10;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      overflow: auto;
+    }
+
+    .intro-title {
+      margin: 0;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ff3b3b;
+      line-height: 1.2;
+    }
+
+    .intro-text {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #ffffff;
+      line-height: 1.45;
+    }
+
+    .intro-images {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .intro-images img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      object-fit: cover;
+    }
+
+    .pdf-wrap {
+      background: #0f0f10;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      min-height: 320px;
+      overflow: hidden;
+    }
+
+    .pdf-viewer {
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: block;
+    }
+
+    .pdf-viewer iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+
+    @media (max-width: 900px) {
+      .project-detail {
+        grid-template-columns: 1fr;
+      }
+      .intro-box { order: 2; }
+      .pdf-wrap  { order: 1; }
+      .intro-title { font-size: 1rem; }
+      .intro-text  { font-size: 0.95rem; }
+    }
+
+    header.header, footer.footer {
+      padding: 16px 24px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Servidor FTP i Nextcloud</h1>
+    <nav class="nav">
+      <a href="index.html">Inici</a>
+      <a href="llistat.html">Projectes</a>
+      <a href="curriculum.html">Currículum</a>
+      <a href="contacte.html">Contacte</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="project-detail" role="region" aria-label="Detall del projecte">
+
+      <aside class="intro-box" id="introBox" aria-label="Introducció del projecte">
+        <h2 class="intro-title"> Introducció </h2>
+
+        <p class="intro-text">Aquesta pràctica consisteix en la configuració i administració d’un servidor FTP i una plataforma Nextcloud en Ubuntu Server. L’objectiu és implementar serveis de transferència i emmagatzematge de fitxers de manera segura, utilitzant eines com ProFTPD, SFTP, Webmin, NGINX i MariaDB, tot verificant-ne el correcte funcionament des dels clients.</p>
+
+        <div class="intro-images" id="introImages">
+        </div>
+      </aside>
+
+      <div class="pdf-wrap" aria-label="Lector de PDF">
+        <div class="pdf-viewer" id="pdfViewer">
+          <iframe id="pdfFrame" src="Marc Castro i Walid Koubaa_0375_ RA4- Servidor FTP i Nextcloud (2).pdf" title="PDF del projecte" allowfullscreen></iframe>
+          <noscript>
+            <p style="padding:12px;margin:0;color:#fff;">El navegador no mostra PDFs en línia. Assegura't que el fitxer existeix en la ruta indicada.</p>
+          </noscript>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Marc Castro Linares</p>
+  </footer>
+
+  <div id="pageTimer">
+    <span class="pt-icon">⏱️</span><span class="pt-time">00:00</span>
+  </div>
+
+  <canvas id="particles"></canvas>
+
+  <script>
+    (function() {
+      const frame = document.getElementById('pdfFrame');
+      const header = document.querySelector('header.header');
+      const footer = document.querySelector('footer.footer');
+      const topPadding = 24;
+
+      function resizePdf() {
+        if (!frame) return;
+        const headerH = header ? header.getBoundingClientRect().height : 0;
+        const footerH = footer ? footer.getBoundingClientRect().height : 0;
+        const available = window.innerHeight - headerH - footerH - topPadding;
+        const h = Math.max(300, available);
+        frame.style.height = h + 'px';
+
+        const pdfWrap = frame.closest('.pdf-wrap');
+        const introBox = document.getElementById('introBox');
+        if (pdfWrap && introBox) {
+          const pdfHeight = pdfWrap.getBoundingClientRect().height;
+          introBox.style.minHeight = Math.max(300, pdfHeight) + 'px';
+        }
+      }
+
+      window.addEventListener('resize', resizePdf);
+      window.addEventListener('load', resizePdf);
+      resizePdf();
+    })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
