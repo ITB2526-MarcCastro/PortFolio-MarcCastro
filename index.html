@@ -1,46 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfoli Marc Castro Linares</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .intro-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
+    .intro-box {
+      padding: 0;
+      overflow: hidden;
+      align-self: start;
+    }
+
+    .intro-section {
+      grid-template-columns: 380px 1fr;
+      align-items: start;
     }
 
     .intro-images img {
+      display: block;
       width: 100%;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.6);
+      height: auto;
+      margin: 0;
+      object-fit: contain;
+      object-position: center top;
     }
 
-    .intro-images img:first-child {
-      grid-column: span 2;
-      height: 200px;
-    }
-
-    .intro-images img:nth-child(2) {
-      grid-row: 2 / span 3;
-      height: 432px;
-      object-position: center 25%;
-    }
-
-    .intro-images img:nth-child(3) {
-      grid-row: 5;
-      grid-column: span 2;
-      height: 200px;
-    }
-
-    .intro-images img:nth-child(4) {
-      grid-column: 2;
-      grid-row: 2 / span 3;
-      height: 432px;
+    @media (max-width: 768px) {
+      .intro-section { grid-template-columns: 1fr; }
     }
 
     .info-box {
@@ -76,13 +63,10 @@
 
   <main class="container">
     <section class="intro-section">
-      <!-- ESQUERRA: Imatges en grid -->
+      <!-- ESQUERRA: Foto -->
       <aside class="intro-box">
         <div class="intro-images" id="introImages">
-          <img src="migente.jpg" alt="Foto 1">
-          <img src="moto.jpg" alt="Foto 2">
-          <img src="montaña.jpg" alt="Foto 3">
-          <img src="jo.jpg" alt="Foto 4">
+          <img src="jo.jpg" alt="Marc Castro Linares">
         </div>
       </aside>
 
@@ -90,13 +74,11 @@
       <div class="info-box">
         <h2>Sobre mi</h2>
         <p>
-          Em dic Marc Castro Linares i vaig néixer el 22 de setembre de 2007 a l'Hospital de Calella. Visc a Arenys de Mar i em considero un noi molt extrovertit i actiu. M'agrada molt practicar esports i una de les meves grans passions són les motos.
+          Sóc Marc Castro Linares, estudiant del cicle formatiu de grau superior d'Administració de Sistemes Informàtics en Xarxa (ASIX) a l'Institut Tecnològic de Barcelona. Vinc del batxillerat científic-tecnològic, cursat a l'Institut Sunsi Mora, i visc a Arenys de Mar.
           <br><br>
-          Pel que fa a la meva formació, vaig estudiar el batxillerat científic-tecnològic a l'Institut Sunsi Mora. Actualment estudio el cicle formatiu d'ASIXc (Administració de Sistemes Informàtics en Xarxa) a l'ITB. Durant aquesta formació estic adquirint coneixements tècnics en diferents àrees com: Sistemes Operatius, Xarxes, Virtualització, Serveis i administració i Programació bàsica.
+          Durant la formació he treballat amb sistemes operatius Windows i Linux, xarxes i serveis, virtualització i contenidors, i ciberseguretat. Els projectes van des de la configuració de dominis amb Active Directory i Samba fins a l'anàlisi forense de dispositius mòbils o el desplegament d'aplicacions amb Docker. Aquest portfoli els recull organitzats per àrees.
           <br><br>
-          En el meu dia a dia intento ser una persona disciplinada amb tot allò que faig. També dono molta importància als valors: per a mi, l'honestedat i el respecte cap als altres són de les coses més importants que hi ha. M'agrada prendre les meves pròpies decisions i no deixar-me influenciar fàcilment pels altres, perquè crec que cadascú ha de seguir el seu propi camí.
-          <br><br>
-          En definitiva, sóc una persona oberta, amb energia i amb les idees clares sobre els valors que vull seguir a la vida.
+          Em considero una persona disciplinada, responsable i amb criteri propi, i valoro l'honestedat i el respecte en el treball en equip. Fora de l'àmbit acadèmic, m'agraden l'esport i les motos.
         </p>
       </div>
     </section>
@@ -105,10 +87,6 @@
   <footer class="footer">
      <p>&copy; 2026 Marc Castro Linares</p>
   </footer>
-
-  <div id="pageTimer" aria-live="polite">
-    <span class="pt-icon">⏱️</span><span class="pt-time">00:00</span>
-  </div>
 
   <canvas id="particles"></canvas>
   <script src="script.js"></script>
