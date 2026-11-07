@@ -3,89 +3,71 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfoli de Marc Castro Linares, estudiant d'Administració de Sistemes Informàtics en Xarxa (ASIX).">
   <title>Portfoli Marc Castro Linares</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .intro-box {
-      padding: 0;
-      overflow: hidden;
-      align-self: start;
-    }
-
-    .intro-section {
-      grid-template-columns: 380px 1fr;
-      align-items: start;
-    }
-
-    .intro-images img {
-      display: block;
-      width: 100%;
-      height: auto;
-      margin: 0;
-      object-fit: contain;
-      object-position: center top;
-    }
-
-    @media (max-width: 768px) {
-      .intro-section { grid-template-columns: 1fr; }
-    }
-
-    .info-box {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-
-    .info-box h2 {
-      margin-bottom: 1.5rem;
-      color: #ff3b3b;
-    }
-
-    .info-box p {
-      line-height: 1.8;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-  </style>
 </head>
 <body>
   <header class="header">
     <h1>Portfoli Marc Castro Linares</h1>
-    <nav class="nav">
-      <a href="index.html" class="active">Inici</a>
-      <a href="llistat.html">Projectes</a>
-      <a href="curriculum.html">Currículum</a>
-      <a href="contacte.html">Contacte</a>
-    </nav>
   </header>
 
   <main class="container">
-    <section class="intro-section">
-      <!-- ESQUERRA: Foto -->
-      <aside class="intro-box">
-        <div class="intro-images" id="introImages">
-          <img src="jo.jpg" alt="Marc Castro Linares">
-        </div>
-      </aside>
 
-      <!-- DRETA: Text de presentació -->
-      <div class="info-box">
-        <h2>Sobre mi</h2>
-        <p>
-          Sóc Marc Castro Linares, estudiant del cicle formatiu de grau superior d'Administració de Sistemes Informàtics en Xarxa (ASIX) a l'Institut Tecnològic de Barcelona. Vinc del batxillerat científic-tecnològic, cursat a l'Institut Sunsi Mora, i visc a Arenys de Mar.
-          <br><br>
-          Durant la formació he treballat amb sistemes operatius Windows i Linux, xarxes i serveis, virtualització i contenidors, i ciberseguretat. Els projectes van des de la configuració de dominis amb Active Directory i Samba fins a l'anàlisi forense de dispositius mòbils o el desplegament d'aplicacions amb Docker. Aquest portfoli els recull organitzats per àrees.
-          <br><br>
-          Em considero una persona disciplinada, responsable i amb criteri propi, i valoro l'honestedat i el respecte en el treball en equip. Fora de l'àmbit acadèmic, m'agraden l'esport i les motos.
-        </p>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="kicker">ASIX · Institut Tecnològic de Barcelona</p>
+        <h2 class="hero-name">Marc Castro Linares</h2>
+        <p class="hero-lead">Estudiant d'Administració de Sistemes Informàtics en Xarxa, amb interès en sistemes, xarxes i ciberseguretat. Aquí trobaràs els projectes i pràctiques que he fet durant la formació.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="llistat.html">Veure projectes</a>
+          <a class="btn" href="curriculum.html">Currículum</a>
+          <a class="btn" href="contacte.html">Contacte</a>
+        </div>
       </div>
-    </section>
+      <div class="hero-photo">
+        <img src="jo.jpg" alt="Marc Castro Linares">
+      </div>
+    </div>
+
+    <h2 class="block-title">Sobre mi</h2>
+    <article class="about">
+      <p>Sóc Marc Castro Linares, estudiant del cicle formatiu de grau superior d'Administració de Sistemes Informàtics en Xarxa (ASIX) a l'Institut Tecnològic de Barcelona. Vinc del batxillerat científic-tecnològic, cursat a l'Institut Sunsi Mora, i visc a Arenys de Mar.</p>
+      <p>Durant la formació he treballat amb sistemes operatius Windows i Linux, xarxes i serveis, virtualització i contenidors, i ciberseguretat. Els projectes van des de la configuració de dominis amb Active Directory i Samba fins a l'anàlisi forense de dispositius mòbils o el desplegament d'aplicacions amb Docker.</p>
+      <p>Em considero una persona disciplinada, responsable i amb criteri propi, i valoro l'honestedat i el respecte en el treball en equip. Fora de l'àmbit acadèmic, m'agraden l'esport i les motos.</p>
+    </article>
+
+    <h2 class="block-title">Àrees de treball</h2>
+    <div class="areas">
+      <a class="area-card" href="llistat.html#xarxes"><strong>Xarxes</strong><span>5 projectes · DNS, DHCP, NGINX, FTP</span></a>
+      <a class="area-card" href="llistat.html#sistemes-operatius"><strong>Sistemes Operatius</strong><span>4 projectes · Active Directory, Samba</span></a>
+      <a class="area-card" href="llistat.html#seguretat-alta-disponibilitat"><strong>Seguretat i Alta Disponibilitat</strong><span>4 projectes · RGPD, passwords, ransomware</span></a>
+      <a class="area-card" href="llistat.html#seguretat-sistemes-xarxes-serveis"><strong>Seguretat en Sistemes, Xarxes i Serveis</strong><span>3 projectes · Android, forense, APKs</span></a>
+      <a class="area-card" href="llistat.html#ciberseguretat-hacking"><strong>Ciberseguretat i Hacking</strong><span>3 projectes · Pentesting, OSINT</span></a>
+      <a class="area-card" href="llistat.html#aplicacions-web"><strong>Implantació d'Aplicacions Web</strong><span>3 projectes · Docker, WordPress</span></a>
+      <a class="area-card" href="llistat.html#personals"><strong>Projectes Personals</strong><span>3 projectes · CPD, recerca</span></a>
+    </div>
+
+    <h2 class="block-title">Competències</h2>
+    <div class="chips">
+      <span class="chip">Linux</span>
+      <span class="chip">Windows Server</span>
+      <span class="chip">Active Directory</span>
+      <span class="chip">Samba</span>
+      <span class="chip">DNS i DHCP</span>
+      <span class="chip">NGINX</span>
+      <span class="chip">Docker</span>
+      <span class="chip">WordPress</span>
+      <span class="chip">Pentesting</span>
+      <span class="chip">Anàlisi forense</span>
+      <span class="chip">Automatització</span>
+      <span class="chip">RGPD</span>
+    </div>
+
   </main>
 
   <footer class="footer">
-     <p>&copy; 2026 Marc Castro Linares</p>
+    <p>&copy; 2026 Marc Castro Linares</p>
   </footer>
 
   <canvas id="particles"></canvas>
